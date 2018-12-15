@@ -1,0 +1,16 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "description": "Web Development Project",
+  "scripts": {
+    "postinstall": "run-p install:frontend install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "start": "run-p start:frontend start:backend",
+    "start:frontend": "npm run start --prefix frontend",
+    "start:backend": "npm run start --prefix backend"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.0.2"
+  }
+}
