@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../model/db');
 
-router.get('/', (req, res) => res.send('Hello World!'));
+router.get('/', (req, res) => res.send('Hello API!'));
 
 module.exports = router;
