@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // import routes
-let routes = require('./routes/routes');
-app.use('/api/', routes);
+let routesAuthentication = require('./routes/routes_authentication');
+app.use('/api/', routesAuthentication);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
