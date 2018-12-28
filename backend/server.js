@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const app = express();
 
 // Bring the database and models
 require('./model/db');
@@ -9,7 +10,6 @@ require('./model/db');
 require('./config/passport');
 
 // init parameters
-const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());

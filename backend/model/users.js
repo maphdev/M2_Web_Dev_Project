@@ -26,7 +26,7 @@ const UserSchema = new Schema({
 const crypto = require('crypto');
 
 // Set the password (when creating a user).
-UserSchema.methods.setPassword = (password) => {
+UserSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
     .toString('hex');
@@ -34,7 +34,7 @@ UserSchema.methods.setPassword = (password) => {
 
 // Check the password (encrypt the salt and the password and see if the output
 // matches the stored hash)
-UserSchema.methods.isValidPassword = (password) => {
+UserSchema.methods.isValidPassword = function (password) {
   let hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
     .toString('hex');
   return this.hash == hash;
@@ -46,7 +46,7 @@ UserSchema.methods.isValidPassword = (password) => {
 const jwt = require('jsonwebtoken');
 
 // Generate a JSON Web Token (when a user registers and logs in).
-UserSchema.methods.generateJWT = () => {
+UserSchema.methods.generateJWT = function () {
   var expiryDate = new Date();
   expiryDate.setDate(expiryDate.getDate() + 7);
 
