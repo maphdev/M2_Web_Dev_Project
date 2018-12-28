@@ -6,21 +6,24 @@ module.exports.register = function (req, res) {
   // create a new Mongoose model instance with the forms' data, and
   // call the setPassword method to add the salt and the hash to the instance
   var user = new User();
-  console.log(req.body);
   user.username = req.body.username;
   user.email = req.body.email;
   user.setPassword(req.body.password);
 
   // save the instance as a record to the database
   user.save(function (err) {
+    if (err) {
+      if (err.name === 'MongoError' && err.code === 11000) {
+        // Duplicate username
+        return res.status(500).send({ succes: false, message: 'User already exist!' });
+      }
+      return res.status(500).send(err);
+    }
     // generate a JWT
     let token = user.generateJWT();
-    res.status(200);
 
     // send the JWT inside the JSON response
-    res.json({
-      "token": token
-    });
+    res.status(200).send({success: true, "token": token})
   });
 };
 

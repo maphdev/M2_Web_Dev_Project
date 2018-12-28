@@ -6,8 +6,8 @@ const User = mongoose.model('User');
 passport.use(new LocalStrat({
     usernameField: 'email'
   },
-  (username, password, done) => {
-    User.findOne({email: username}, (err, user) => {
+  function (username, password, done) {
+    User.findOne({email: username}, function (err, user) {
       if (err) {
         return done(err);
       }
