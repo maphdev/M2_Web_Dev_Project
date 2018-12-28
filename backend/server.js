@@ -7,6 +7,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// import debug
+const db = require('./model/db');
+
 // import routes
 let routesAuthentication = require('./routes/routes_authentication');
 app.use('/api/', routesAuthentication);

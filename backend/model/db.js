@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // db parameters
 const options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }, useNewUrlParser: true };
 const dbURL = 'mongodb://username:Password1@ds251902.mlab.com:51902/series-app';
 
 // create the database connection
@@ -27,4 +27,4 @@ process.on('SIGINT', () => {
 });
 
 // SCHEMAS & MODELS
-// require (./mymodel');
+require ('./users');
