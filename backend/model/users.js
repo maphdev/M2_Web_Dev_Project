@@ -56,7 +56,6 @@ UserSchema.methods.generateJWT = () => {
     username: this.username,
     exp: parseInt(expiryDate.getTime() / 1000)
   }, "THE_SECRET");
-}
-
+};
 
 mongoose.model('User', UserSchema);
