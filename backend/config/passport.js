@@ -18,7 +18,7 @@ passport.use(new LocalStrat({
         });
       }
       // password is wrong
-      if (!user.validPassword(password)) {
+      if (!user.isValidPassword(password)) {
         return done(null, false, {
           message: 'Password is wrong'
         });
