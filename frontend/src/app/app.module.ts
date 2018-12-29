@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
