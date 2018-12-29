@@ -78,11 +78,16 @@ module.exports.login = function (req, res) {
 };
 
 module.exports.getProfile = function (req, res) {
-  console.log("PROFILE !!!");
-  res.status(200);
-  res.json({
-    "message" : "Profile done"
-  });
+  // if no user ID exists in the JWT, return a 401
+  if (!req.payload._id) {
+    res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
+  } else {
+    // otherwise continue
+    User.findById(req.payload._id)
+      .exec(function(err, user) {
+        res.status(200).send(user);
+      });
+  }
 };
 
 // we still need to validate forms inputs !
