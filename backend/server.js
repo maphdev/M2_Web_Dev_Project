@@ -23,6 +23,9 @@ app.use(passport.initialize());
 let routesAuthentication = require('./routes/routes_authentication');
 app.use('/api/', routesAuthentication);
 
+let routesMovies = require('./routes/routes_movies');
+app.use('/api/', routesMovies);
+
 // Catch 404 and forward to error handler
 app.get('*', function(req, res, next) {
   let err = new Error('Page Not Found');
