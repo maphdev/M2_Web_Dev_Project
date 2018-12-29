@@ -24,6 +24,6 @@ router.get('/movies/search/:search/:page_id', ctrlMovies.getSearchedMovies);
 // -> GET MOVIES' DETAILS
 
 // (GET) /api/movie/:movie_id
-router.get('/movie/:movie_id', ctrlMovies.getMovieDetails);
+router.get('/movies/:movie_id', ctrlMovies.getMovieDetails);
 
 module.exports = router;
