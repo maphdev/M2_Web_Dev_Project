@@ -11,7 +11,10 @@ require('./model/db');
 require('./config/passport');
 
 // Init parameters
-app.use(cors());
+var corsOptions = {
+    origin: '*',
+    credentials: true };
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(expressValidator())
 app.use(passport.initialize());
