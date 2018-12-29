@@ -26,6 +26,9 @@ app.use('/api/', routesAuthentication);
 let routesMovies = require('./routes/routes_movies');
 app.use('/api/', routesMovies);
 
+let routesWatchlist = require('./routes/routes_watchlist');
+app.use('/api/', routesWatchlist);
+
 // Catch 404 and forward to error handler
 app.get('*', function(req, res, next) {
   let err = new Error('Page Not Found');
