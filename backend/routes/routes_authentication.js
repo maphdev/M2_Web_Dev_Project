@@ -15,6 +15,6 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 // (GET) /api/profile/USERID - to return profile xetails when given a USERID
-router.get('/profile', auth, ctrlAuth.getProfile)
+router.get('/user/profile', auth, ctrlAuth.getProfile);
 
 module.exports = router;

@@ -69,7 +69,7 @@ export class AuthenticationService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register'|'user/profile', user?: TokenPayload): Observable<any> {
 
     let uri = 'http://localhost:4000';
     let base;
@@ -101,7 +101,7 @@ export class AuthenticationService {
   }
 
   public getProfile(): Observable<any> {
-    return this.request('get', 'profile');
+    return this.request('get', 'user/profile');
   }
 
 }
