@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const expressValidator = require('express-validator');
-const app = express();
+let app = express();
 
 // Bring the database and models
 require('./model/db');
