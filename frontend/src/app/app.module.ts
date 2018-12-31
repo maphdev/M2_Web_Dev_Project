@@ -9,7 +9,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
-import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { AuthGuardNotIdentifiedService } from './services/auth-guard-not-identified/auth-guard-not-identified.service';
+import { AuthGuardIdentifiedService } from './services/auth-guard-identified/auth-guard-identified.service';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, AuthGuardService],
+  providers: [AuthenticationService, AuthGuardNotIdentifiedService, AuthGuardIdentifiedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
