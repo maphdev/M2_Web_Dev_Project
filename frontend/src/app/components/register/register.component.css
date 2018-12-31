@@ -1,0 +1,66 @@
+html, body {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: white;
+  font-size: 16px;
+  margin: 0;
+  background: black;
+  height: 100vh;
+}
+
+nav {
+  height: 90px;
+}
+
+nav a {
+  display: inline-block;
+  line-height: 90px;
+}
+
+nav .logo {
+  margin-left: 3%;
+}
+
+nav img {
+  width: 167px;
+  height: 45px;
+  vertical-align: middle;
+}
+
+.form {
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  padding: 30px;
+  max-width: 400px;
+  max-height: 500px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+
+.submit {
+  color: #fff;
+  background-color: #e50914;
+  line-height: normal;
+  margin-top: 10px;
+  padding: 7px 17px;
+  font-weight: 400;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.login {
+  margin-top: 5%;
+  padding-top: 2%;
+  border-top: #ccc solid 1px;
+}
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 160px; left: 0; bottom: 100px; right: 0;
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+}

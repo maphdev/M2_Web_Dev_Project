@@ -1,17 +1,41 @@
-<h1>Register</h1>
-<p class="lead">Already a member? Please <a routerLink="/login">log in</a> instead.</p>
-<form (submit)="register()">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username" placeholder="Enter your username" [(ngModel)]="creds.username">
-  </div>
-  <div>
-    <label for="email">Email address</label>
-    <input type="email" name="email" placeholder="Enter email" [(ngModel)]="creds.email">
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" placeholder="Password" [(ngModel)]="creds.password">
-  </div>
-  <button type="submit" class="btn btn-default">Register!</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Watchlist - Sign Up</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="" class="logo">
+        <img src="../../../assets/watchlist_logo.png" class="logo">
+      </a>
+    </nav>
+
+    <section>
+      <div class="container form Absolute-Center">
+        <h1>Sign Up</h1>
+        <form (submit)="register()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username" placeholder="Enter username" [(ngModel)]="creds.username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input class="form-control" type="email" name="email" placeholder="Enter email" [(ngModel)]="creds.email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]="creds.password">
+          </div>
+
+          <button type="submit" class="btn submit">Submit</button>
+        </form>
+        <div class="login">
+          <p>Already have an account? <a routerLink="login">Sign In</a></p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
