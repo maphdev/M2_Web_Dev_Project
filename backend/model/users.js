@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const MovielistModel = require('./movielist');
 
 // The hash and salt will be used instead of saving a password.
 // The salt is a string of characters unique to each user.
@@ -21,9 +20,9 @@ const UserSchema = new Schema({
   hash: String,
   salt: String,
 
-  watchlist: MovielistModel,
-  favoritelist: MovielistModel,
-  seenlist: MovielistModel
+  watchlist: [],
+  favoritelist: [],
+  seenlist: []
 });
 
 // We use Mongoose schema methods to do the settings and the checking of the
