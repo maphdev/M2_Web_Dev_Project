@@ -91,7 +91,10 @@ module.exports.getProfile = function (req, res) {
     // otherwise continue
     User.findById(req.payload._id)
       .exec(function(err, user) {
-        res.status(200).send(user);
+        if (err) {
+          return res.status(500).send(err);
+        }
+        res.status(200).send({success: true, user: user});
       });
   }
 };
