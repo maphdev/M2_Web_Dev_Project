@@ -21,9 +21,9 @@ const UserSchema = new Schema({
   hash: String,
   salt: String,
 
-  watchlist: MovielistModel.schema,
-  favoritelist: MovielistModel.schema,
-  seenlist: MovielistModel.schema
+  watchlist: MovielistModel,
+  favoritelist: MovielistModel,
+  seenlist: MovielistModel
 });
 
 // We use Mongoose schema methods to do the settings and the checking of the
