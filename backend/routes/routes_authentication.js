@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ctrlAuth = require('../controllers/ctrl_authentication');
-
-const jwt = require('express-jwt');
-const auth = jwt({
-  secret: 'THE_SECRET',
-  userProperty: 'payload'
-});
+const auth = ctrlAuth.auth
 
 // (POST) /api/register - to handle new users registering
 router.post('/register', ctrlAuth.register);

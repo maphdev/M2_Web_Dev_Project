@@ -1,6 +1,12 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const jwt = require('express-jwt');
+
+module.exports.auth = jwt({
+  secret: 'THE_SECRET',
+  userProperty: 'payload'
+});
 
 module.exports.register = function (req, res) {
   // check req arguments
