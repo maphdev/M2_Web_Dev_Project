@@ -1,0 +1,26 @@
+.card {
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+  margin: 25px;
+  transition: transform .2s;
+  position: relative;
+  top: 0;
+  box-shadow: 0 0 5px #ffffff !important;
+}
+
+.poster {
+  width: 250px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 20px #ffffff !important;
+}
+
+.title {
+  color: black;
+  text-align: center;
+  padding: 0px 20px 20px 20px;
+}
