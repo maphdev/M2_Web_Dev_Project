@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MoviecardComponent } from './components/moviecard/moviecard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     ProfileComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    MoviecardComponent
   ],
   imports: [
     BrowserModule,
