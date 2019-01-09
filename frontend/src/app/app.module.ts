@@ -15,6 +15,8 @@ import { AuthGuardIdentifiedService } from './services/auth-guard-identified/aut
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     WelcomeComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

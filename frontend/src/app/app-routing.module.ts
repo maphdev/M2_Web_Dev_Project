@@ -7,12 +7,14 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent, canActivate: [AuthGuardIdentifiedService]},
   {path: 'login', component: LoginComponent, canActivate: [AuthGuardIdentifiedService]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuardIdentifiedService]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardNotIdentifiedService]}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardNotIdentifiedService]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuardNotIdentifiedService]}
 ];
 
 @NgModule({
