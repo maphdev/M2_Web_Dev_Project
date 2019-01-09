@@ -27,6 +27,21 @@ nav img {
   vertical-align: middle;
 }
 
+nav .profile {
+  color: #fff;
+  float: right;
+  background-color: #e50914;
+  line-height: normal;
+  margin-top: 26px;
+  margin-right: 3%;
+  padding: 7px 17px;
+  font-weight: 400;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 nav .signout {
   color: #fff;
   float: right;
