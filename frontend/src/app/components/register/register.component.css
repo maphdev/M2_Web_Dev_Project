@@ -64,3 +64,8 @@ nav img {
   min-width: 200px;
   max-width: 400px;
 }
+
+.submit:hover {
+  background: #f40612;
+  color:white;
+}
