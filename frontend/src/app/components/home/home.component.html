@@ -1,2 +1,22 @@
-<app-header></app-header>
-HEY
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Watchlist - Make your own watchlist</title>
+  </head>
+
+  <body>
+
+    <app-header></app-header>
+
+    <div class="grid">
+      <app-moviecard
+        *ngFor="let movie of movies"
+        [id]="movie.id"
+        [posterPath]="movie.poster_path"
+        [name]="movie.original_title">
+      </app-moviecard>
+    </div>
+
+  </body>
+</html>

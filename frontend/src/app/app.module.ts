@@ -11,7 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { AuthGuardNotIdentifiedService } from './services/auth-guard-not-identified/auth-guard-not-identified.service';
 import { AuthGuardIdentifiedService } from './services/auth-guard-identified/auth-guard-identified.service';
-
+import { MoviesApiService } from './services/movies-api/movies-api.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -37,7 +37,7 @@ import { MoviecardComponent } from './components/moviecard/moviecard.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, AuthGuardNotIdentifiedService, AuthGuardIdentifiedService],
+  providers: [AuthenticationService, AuthGuardNotIdentifiedService, AuthGuardIdentifiedService, MoviesApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
