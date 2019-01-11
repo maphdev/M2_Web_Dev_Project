@@ -46,7 +46,7 @@
      </div>
      <div class="btn-nav-page-bloc">
        <a *ngIf="currentPage > 1" (click)="precedentPage()" class="btn-red btn-nav-page">Previous</a>
-       <a *ngIf="currentPage < maxPages" (click)="nextPage()" class="btn-red btn-nav-page">Next</a>
+       <a (click)="nextPage()" class="btn-red btn-nav-page">Next</a>
      </div>
      </main>
      <aside></aside>
