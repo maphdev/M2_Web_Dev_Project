@@ -20,17 +20,7 @@ export class MoviesApiService {
     console.log("ok");
   }
 
-  fetchMovies(page = 1) {
-    return this.http.get<Movie[]>(`${this.baseUrl}/movies/popular/${page}`);
-/*
-    let base = this.http.get<Movie[]>(`${this.baseUrl}/movies/popular/${page}`);
-
-    const request = base.pipe(
-      map((data: Movie[]) => {
-        return data;
-      })
-    );
-
-    return request;*/
+  fetchMovies(page = 1, category = "popular") {
+    return this.http.get<Movie[]>(`${this.baseUrl}/movies/${category}/${page}`);
   }
 }
