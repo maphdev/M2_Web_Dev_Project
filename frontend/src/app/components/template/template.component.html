@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watchlist - Make your own watchlist</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="container">
+   <header class="elevated">
+     <a routerLink="/" class="logo">
+       <img src="../../../assets/watchlist_logo.png" class="logo">
+     </a>
+     <a (click)="auth.logout()" class="btn-red btn-header">
+       Sign out
+     </a>
+     <a routerLink="/profile" class="btn-red btn-header">
+       Profile
+     </a>
+   </header>
+   <nav></nav>
+   <main>
+      <router-outlet></router-outlet>
+   </main>
+     <aside></aside>
+     <footer class="elevated">@ Copyright Watchlist</footer>
+  </body>
+</html>

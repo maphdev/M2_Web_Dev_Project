@@ -6,15 +6,39 @@ import { AuthGuardIdentifiedService } from './services/auth-guard-identified/aut
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { TemplateComponent } from './components/template/template.component';
 import { HomeComponent } from './components/home/home.component';
+import { DiscovermoviesComponent } from './components/discovermovies/discovermovies.component';
+import { ListsmoviesComponent } from './components/listsmovies/listsmovies.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent, canActivate: [AuthGuardIdentifiedService]},
+  {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuardIdentifiedService]},
   {path: 'login', component: LoginComponent, canActivate: [AuthGuardIdentifiedService]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuardIdentifiedService]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardNotIdentifiedService]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuardNotIdentifiedService]}
+  {
+    path: '',
+    component: TemplateComponent,
+    canActivate: [AuthGuardNotIdentifiedService],
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'discover',
+        component: DiscovermoviesComponent
+      },
+      {
+        path: 'lists',
+        component: ListsmoviesComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

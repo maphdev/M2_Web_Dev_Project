@@ -45,7 +45,7 @@ export class AuthenticationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('user-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/welcome');
   }
 
   public getUserDetails(): UserDetails {

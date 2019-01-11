@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Watchlist - Make your own watchlist</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body class="container">
-   <header class="elevated">
-     <a routerLink="/home" class="logo">
-       <img src="../../../assets/watchlist_logo.png" class="logo">
-     </a>
-     <a (click)="auth.logout()" class="btn-red btn-header">
-       Sign out
-     </a>
-     <a routerLink="/profile" class="btn-red btn-header">
-       Profile
-     </a>
-   </header>
-   <nav></nav>
-   <main>
-     <div class="search-container elevated">
-       <div class="search-inside">
-         <form (submit)="onSubmitSearch($event.target.search.value)">
-           <input type="text" placeholder="Search.." name="search">
-           <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-       </div>
-       <div class="and-inside">OR</div>
-       <div class="select-inside">
-          <select (change)="onCategoryChange($event.target.value)">
-          <option disabled selected>Select your Category</option>
-          <option *ngFor="let category of categoryLabels">{{ category }}</option>
-        </select>
-       </div>
-     </div>
-     <div class="grid">
-       <app-moviecard
-         *ngFor="let movie of movies"
-         [id]="movie.id"
-         [posterPath]="movie.poster_path"
-         [name]="movie.original_title">
-       </app-moviecard>
-     </div>
-     <div class="btn-nav-page-bloc">
-       <a *ngIf="currentPage > 1" (click)="precedentPage()" class="btn-red btn-nav-page">Previous</a>
-       <a (click)="nextPage()" class="btn-red btn-nav-page">Next</a>
-     </div>
-     </main>
-     <aside></aside>
-     <footer class="elevated">@ Copyright Watchlist</footer>
-  </body>
-</html>
+<a routerLink="/discover" class="btn-red btn-header">
+  Discover
+</a>
+<a routerLink="/lists" class="btn-red btn-header">
+  My lists
+</a>
