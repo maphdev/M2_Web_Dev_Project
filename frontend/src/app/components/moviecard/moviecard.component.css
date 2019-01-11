@@ -10,6 +10,8 @@
 
 .poster {
   width: 250px;
+  height: auto;
+  min-height: 400px;
   border-radius: 10px 10px 0px 0px;
 }
 

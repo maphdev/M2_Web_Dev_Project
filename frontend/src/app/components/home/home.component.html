@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="container">
    <header class="elevated">
@@ -20,11 +21,19 @@
    </header>
    <nav></nav>
    <main>
-     <div class="select-wrapper elevated">
+     <div class="search-container elevated">
+       <div class="search-inside">
+         <form (submit)="onSubmitSearch($event.target.search.value)">
+           <input type="text" placeholder="Search.." name="search">
+           <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+       </div>
+       <div class="and-inside">OR</div>
        <div class="select-inside">
           <select (change)="onCategoryChange($event.target.value)">
-            <option *ngFor="let category of categoryLabels">{{ category }}</option>
-          </select>
+          <option disabled selected>Select your Category</option>
+          <option *ngFor="let category of categoryLabels">{{ category }}</option>
+        </select>
        </div>
      </div>
      <div class="grid">
@@ -37,7 +46,7 @@
      </div>
      <div class="btn-nav-page-bloc">
        <a *ngIf="currentPage > 1" (click)="precedentPage()" class="btn-red btn-nav-page">Previous</a>
-       <a (click)="nextPage()" class="btn-red btn-nav-page">Next</a>
+       <a *ngIf="currentPage < maxPages" (click)="nextPage()" class="btn-red btn-nav-page">Next</a>
      </div>
      </main>
      <aside></aside>

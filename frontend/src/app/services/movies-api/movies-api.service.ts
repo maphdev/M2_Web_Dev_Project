@@ -20,7 +20,11 @@ export class MoviesApiService {
     console.log("ok");
   }
 
-  fetchMovies(page = 1, category = "popular") {
+  fetchMoviesByCategory(page = 1, category = "popular") {
     return this.http.get<Movie[]>(`${this.baseUrl}/movies/${category}/${page}`);
+  }
+
+  fetchMoviesBySearch(page = 1, search = "") {
+    return this.http.get<Movie[]>(`${this.baseUrl}/movies/search/${search}/${page}`);
   }
 }
