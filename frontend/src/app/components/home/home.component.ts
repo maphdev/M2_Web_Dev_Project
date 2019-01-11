@@ -39,13 +39,13 @@ export class HomeComponent implements OnInit {
     if (!this.typeList) {
       this.api.fetchMoviesByCategory(this.currentPage, this.currentCategory)
       .subscribe(
-        data => {this.movies = data['results']; this.maxPages = data.total_pages;},
+        data => {this.movies = data['results'];},
         err => console.error(err),
       );
     } else {
       this.api.fetchMoviesBySearch(this.currentPage, this.currentSearch)
       .subscribe(
-        data => {this.movies = data['results']; this.maxPages = data.total_pages;},
+        data => {this.movies = data['results'];},
         err => console.error(err),
       );
     }
