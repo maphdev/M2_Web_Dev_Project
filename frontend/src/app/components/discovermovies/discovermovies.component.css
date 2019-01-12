@@ -36,8 +36,8 @@
   margin: 0px 20px 0px 20px;
 }
 
-.search-container {
-    background: #161616;
+.select-container {
+    background: url('../../../assets/landing_page_background.jpg');
     border-radius: 3px;
     box-shadow: 0 0 5px #ffffff !important;
     width: 100%;
@@ -50,15 +50,4 @@
     text-align:center;
     display: table-cell;
     vertical-align: middle;
-}
-
-.search-inside {
-  text-align:center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.and-inside {
-  display: table-cell;
-  vertical-align: middle;
 }
