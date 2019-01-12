@@ -23,7 +23,7 @@ router.get('/movies/search/:search/:page_id', ctrlMovies.getSearchedMovies);
 
 // -> GET MOVIES' DETAILS
 
-// (GET) /api/movie/:movie_id
+// (GET) /api/movies/:movie_id
 router.get('/movies/:movie_id', ctrlMovies.getMovieDetails);
 
 module.exports = router;

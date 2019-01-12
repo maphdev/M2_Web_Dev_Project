@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../../types/movie';
 import { map } from 'rxjs/operators/map';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 
 @Injectable({
@@ -12,12 +13,8 @@ export class MoviesApiService {
 
   baseUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private auth: AuthenticationService) {
     this.baseUrl = 'http://localhost:4000/api';
-  }
-
-  printOnConsole(){
-    console.log("ok");
   }
 
   fetchMoviesByCategory(page = 1, category = "popular") {
@@ -26,5 +23,13 @@ export class MoviesApiService {
 
   fetchMoviesBySearch(page = 1, search = "") {
     return this.http.get<Movie[]>(`${this.baseUrl}/movies/search/${search}/${page}`);
+  }
+
+  fetchPersonalMoviesList(list = "watchlist") {
+    return this.http.get(`${this.baseUrl}/movielist/${list}/`, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
+  }
+
+  fetchMovieById(id = 0) {
+    return this.http.get<Movie>(`${this.baseUrl}/movies/${id}/`);
   }
 }

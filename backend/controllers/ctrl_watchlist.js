@@ -11,7 +11,7 @@ module.exports.getWatchlist = function (req, res) {
           if (err) {
             return res.status(500).send({success: false, message: err});
           }
-          res.status(200).send({success: true, watchlist: user.watchlist});
+          res.status(200).send({success: true, movieslist: user.watchlist});
         });
   }
 };
@@ -56,7 +56,7 @@ module.exports.getFavoritelist = function (req, res) {
             if (err) {
               return res.status(500).send({success: false, message: err});
             }
-            res.status(200).send({success: true, favoritelist: user.favoritelist});
+            res.status(200).send({success: true, movieslist: user.favoritelist});
           });
   }
 };
@@ -101,7 +101,7 @@ module.exports.getSeenlist = function (req, res) {
           if (err) {
             return res.status(500).send({success: false, message: err});
           }
-          res.status(200).send({success: true, seenlist: user.seenlist});
+          res.status(200).send({success: true, movieslist: user.seenlist});
         });
   }
 };
