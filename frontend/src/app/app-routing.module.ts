@@ -12,6 +12,7 @@ import { DiscovermoviesComponent } from './components/discovermovies/discovermov
 import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
 import { ListsmoviesComponent } from './components/listsmovies/listsmovies.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MoviedetailsComponent } from './components/moviedetails/moviedetails.component';
 
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuardIdentifiedService]},
@@ -27,7 +28,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'discover',
+        path: 'discover/:category/:page',
         component: DiscovermoviesComponent
       },
       {
@@ -35,8 +36,12 @@ const routes: Routes = [
         component: SearchmoviesComponent
       },
       {
-        path: 'lists',
+        path: 'lists/:category',
         component: ListsmoviesComponent
+      },
+      {
+        path: 'movie/:id',
+        component: MoviedetailsComponent
       },
       {
         path: 'profile',

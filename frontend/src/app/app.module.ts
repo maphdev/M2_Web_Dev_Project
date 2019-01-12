@@ -23,6 +23,7 @@ import { AuthGuardIdentifiedService } from './services/auth-guard-identified/aut
 import { ListsmoviesComponent } from './components/listsmovies/listsmovies.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
+import { MoviedetailsComponent } from './components/moviedetails/moviedetails.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SearchmoviesComponent } from './components/searchmovies/searchmovies.co
     DiscovermoviesComponent,
     ListsmoviesComponent,
     HomeComponent,
-    SearchmoviesComponent
+    SearchmoviesComponent,
+    MoviedetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,62 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesApiService } from '../../services/movies-api/movies-api.service';
 import { Movie } from '../../types/movie';
+import { ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-searchmovies',
   templateUrl: './searchmovies.component.html',
   styleUrls: ['./searchmovies.component.css']
 })
-export class SearchmoviesComponent implements OnInit {
 
+export class SearchmoviesComponent implements OnInit {
   // Movie list
   movies: Movie[] = [];
   basePosterPath = "http://image.tmdb.org/t/p/w342";
 
   // search
-  currentSearch = "";
+  currentSearch: string;
 
   // pagination
-  currentPage = 1;
-  maxPages = 0;
+  currentPage: number = 1;
+  maxPages: number;
 
-  constructor(private api: MoviesApiService) { }
+  constructor(private api: MoviesApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.getMovies();
+    this.route.queryParams.subscribe(params => {
+      if (params['query'] != null && params['page'] != null) {
+        this.currentSearch = decodeURI(params['query']);
+        this.currentPage = params['page'];
+        this.getMovies();
+      } else {
+        this.movies = [];
+        this.router.navigate(['/search']);
+      }
+    });
   }
 
   getMovies() {
-    if (this.currentSearch != ""){
-      this.api.fetchMoviesBySearch(this.currentPage, this.currentSearch)
-      .subscribe(
-        data => {this.movies = data['results'];},
-        err => console.error(err),
-      );
-    }
+    this.api.fetchMoviesBySearch(this.currentPage, this.currentSearch)
+    .subscribe(
+      data => {this.movies = data['results']; this.maxPages = data['total_pages']},
+      err => console.error(err),
+    );
   }
 
   precedentPage() {
-    this.currentPage--;
-    this.getMovies();
+    this.router.navigate(['/search'], { queryParams: {query: encodeURI(this.currentSearch), page: --this.currentPage}});
   }
 
   nextPage() {
-    this.currentPage++;
-    this.getMovies();
+    this.router.navigate(['/search'], { queryParams: {query: encodeURI(this.currentSearch), page: ++this.currentPage}});
   }
 
 
-  onSubmitSearch(search: any) {
+  submitSearch(search: any) {
     this.currentPage = 1;
-
-    this.currentSearch = search;
-    this.getMovies();
+    this.router.navigate(['/search'], { queryParams: {query: encodeURI(search), page: this.currentPage}});
   }
 
   clearSearch() {
-    this.currentSearch = "";
-    this.movies = [];
-    this.getMovies();
+    this.router.navigate(['/search']);
+  }
+
+  onCardClicked(movieClickedId:number):void {
+    this.router.navigate(['/movie', movieClickedId]);
   }
 }

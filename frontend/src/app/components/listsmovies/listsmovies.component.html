@@ -1,7 +1,7 @@
 <div class="select-container elevated">
   <div class="select-inside">
      <select (change)="onCategoryChange($event.target.value)">
-     <option *ngFor="let category of categoryLabels">{{ category }}</option>
+     <option *ngFor="let category of categoryLabels" [attr.selected]="category == defaultLabel ? true : null">{{ category }}</option>
    </select>
   </div>
 </div>
@@ -10,6 +10,7 @@
     *ngFor="let movie of movies"
     [id]="movie.id"
     [posterPath]="movie.poster_path"
-    [name]="movie.original_title">
+    [name]="movie.original_title"
+    (cardClicked)="onCardClicked($event)">
   </app-moviecard>
 </div>

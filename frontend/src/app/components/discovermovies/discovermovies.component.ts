@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesApiService } from '../../services/movies-api/movies-api.service';
 import { Movie } from '../../types/movie';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-discovermovies',
   templateUrl: './discovermovies.component.html',
   styleUrls: ['./discovermovies.component.css']
 })
+
 export class DiscovermoviesComponent implements OnInit {
   // Categories
   categoryLabels = ["Popular", "Top Rated", "Now Playing", "Upcoming"];
   categoryRoutes = ["popular", "top_rated", "now_playing", "upcoming"];
-  currentCategory = this.categoryRoutes[0];
+  currentCategory: string;
+  defaultLabel: string;
 
   // Movie list
   movies: Movie[] = [];
   basePosterPath = "http://image.tmdb.org/t/p/w342";
 
   // pagination
-  currentPage = 1;
+  currentPage: number;
   maxPages = 0;
 
-  constructor(private api: MoviesApiService) { }
+  constructor(private api: MoviesApiService, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
-     this.getMovies();
+    this.route.params.subscribe( params => {
+      this.currentCategory = params.category;
+      this.currentPage = params.page;
+      this.defaultLabel = this.categoryLabels[this.categoryRoutes.indexOf(this.currentCategory)];
+      this.getMovies();
+    });
   }
 
   getMovies() {
@@ -36,13 +45,11 @@ export class DiscovermoviesComponent implements OnInit {
   }
 
   precedentPage() {
-    this.currentPage--;
-    this.getMovies();
+    this.router.navigate(['/discover', this.currentCategory, --this.currentPage]);
   }
 
   nextPage() {
-    this.currentPage++;
-    this.getMovies();
+    this.router.navigate(['/discover', this.currentCategory, ++this.currentPage]);
   }
 
   onCategoryChange(category: any){
@@ -66,6 +73,10 @@ export class DiscovermoviesComponent implements OnInit {
           break;
        }
     }
-    this.getMovies();
+    this.router.navigate(['/discover', this.currentCategory, this.currentPage]);
+  }
+
+  onCardClicked(movieClickedId:number):void {
+    this.router.navigate(['/movie', movieClickedId]);
   }
 }
