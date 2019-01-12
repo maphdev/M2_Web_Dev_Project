@@ -1,0 +1,21 @@
+<div class="search-container elevated">
+  <div class="search-inside">
+    <form (submit)="onSubmitSearch($event.target.search.value)">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+   </form>
+   <button (click)="clearSearch()">Clear search</button>
+  </div>
+</div>
+<div class="grid">
+  <app-moviecard
+    *ngFor="let movie of movies"
+    [id]="movie.id"
+    [posterPath]="movie.poster_path"
+    [name]="movie.original_title">
+  </app-moviecard>
+</div>
+<div class="btn-nav-page-bloc">
+  <a *ngIf="movies?.length > 0 && currentPage > 1" (click)="precedentPage()" class="btn-red btn-nav-page">Previous</a>
+  <a *ngIf="movies?.length > 0"(click)="nextPage()" class="btn-red btn-nav-page">Next</a>
+</div>

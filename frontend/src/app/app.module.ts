@@ -22,6 +22,7 @@ import { AuthGuardNotIdentifiedService } from './services/auth-guard-not-identif
 import { AuthGuardIdentifiedService } from './services/auth-guard-identified/auth-guard-identified.service';
 import { ListsmoviesComponent } from './components/listsmovies/listsmovies.component';
 import { HomeComponent } from './components/home/home.component';
+import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HomeComponent } from './components/home/home.component';
     TemplateComponent,
     DiscovermoviesComponent,
     ListsmoviesComponent,
-    HomeComponent
+    HomeComponent,
+    SearchmoviesComponent
   ],
   imports: [
     BrowserModule,

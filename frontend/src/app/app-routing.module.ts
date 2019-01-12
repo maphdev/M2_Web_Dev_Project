@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TemplateComponent } from './components/template/template.component';
 import { HomeComponent } from './components/home/home.component';
 import { DiscovermoviesComponent } from './components/discovermovies/discovermovies.component';
+import { SearchmoviesComponent } from './components/searchmovies/searchmovies.component';
 import { ListsmoviesComponent } from './components/listsmovies/listsmovies.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'discover',
         component: DiscovermoviesComponent
+      },
+      {
+        path: 'search',
+        component: SearchmoviesComponent
       },
       {
         path: 'lists',
