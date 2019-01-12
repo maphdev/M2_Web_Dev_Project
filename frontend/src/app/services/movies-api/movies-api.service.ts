@@ -32,4 +32,8 @@ export class MoviesApiService {
   fetchMovieById(id = 0) {
     return this.http.get<Movie>(`${this.baseUrl}/movies/${id}/`);
   }
+  // (PUT) /api/movielist/watchlist/
+  addMovieToMoviesList(list = "watchlist", id = 0) {
+    return this.http.put(`${this.baseUrl}/movielist/${list}`, {id: id}, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
+  }
 }
