@@ -46,7 +46,7 @@ module.exports.deleteMovieToWatchlist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id,  {$pull: {watchlist: req.params.movie_id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id,  {$pull: {watchlist: parseInt(req.params.movie_id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
@@ -101,11 +101,13 @@ module.exports.deleteMovieToFavoritelist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id,  {$pull: {favoritelist: req.params.movie_id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id,  {$pull: {favoritelist: parseInt(req.params.movie_id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
           }
+          console.log(user);
+          console.log(req.params.movie_id);
           res.status(200).send({success: true, message: "Movie deleted from favoritelist!"});
         });
   }
@@ -136,7 +138,7 @@ module.exports.addMovieToSeenlist = function (req, res) {
   if (errors) {
     return res.status(400).send({success: false, message: errors});
   }
-  
+
   // if no user ID exists in the JWT, return a 401
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
@@ -156,7 +158,7 @@ module.exports.deleteMovieToSeenlist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id,  {$pull: {seenlist: req.params.movie_id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id,  {$pull: {seenlist: parseInt(req.params.movie_id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
