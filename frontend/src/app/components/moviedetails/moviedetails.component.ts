@@ -17,21 +17,29 @@ export class MoviedetailsComponent implements OnInit {
   emptyStars: number[] = [];
   reviews: Review[] = [];
   videos: Video[] = [];
+  isInFavorite: boolean = false;
+  isInWatchlist: boolean = false;
+  isInSeenlist: boolean = false;
 
   constructor(private api: MoviesApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe( params => {
       this.getDetails(params.id);
-      this.getReviews(params.id);
-      this.getVideos(params.id);
     });
   }
 
   getDetails(id) {
     this.api.fetchMovieById(id)
     .subscribe(
-      data => {this.movie = data; this.setStars();},
+      data => {
+        this.movie = data;
+        this.getReviews(id);
+        this.getVideos(id);
+        this.setStars();
+        this.setHeart(id);
+        this.setMoviesListsButton(id);
+      },
       error => console.error(error)
     );
   }
@@ -52,7 +60,7 @@ export class MoviedetailsComponent implements OnInit {
     );
   }
 
-  setStars(){
+  setStars() {
     let voteAverageToHalfPoint = Math.round(this.movie.vote_average * 2) / 2;
 
     while(voteAverageToHalfPoint >= 2) {
@@ -67,5 +75,87 @@ export class MoviedetailsComponent implements OnInit {
     for (let i = 0; i < nbStarsLeft; i++){
       this.emptyStars.push(1);
     }
+  }
+
+  setHeart(id) {
+    this.api.fetchPersonalMoviesList("favoritelist")
+    .subscribe(
+      data => {
+        data['movieslist'].forEach(element => {
+          if(element == id){
+            this.isInFavorite = true;
+          }
+        });
+      },
+      err => console.error(err)
+    );
+  }
+
+  setMoviesListsButton(id) {
+    this.api.fetchPersonalMoviesList("watchlist")
+    .subscribe(
+      data => {
+        data['movieslist'].forEach(element => {
+          if(element == id){
+            this.isInWatchlist = true;
+          }
+        });
+      },
+      err => console.error(err)
+    );
+    this.api.fetchPersonalMoviesList("seenlist")
+    .subscribe(
+      data => {
+        data['movieslist'].forEach(element => {
+          if(element == id){
+            this.isInSeenlist = true;
+          }
+        });
+      },
+      err => console.error(err)
+    );
+  }
+
+  modifyStateFavorite() {
+    if (this.isInFavorite == false) {
+      this.addToList("favoritelist");
+    } else {
+      this.removeFromList("favoritelist");
+    }
+    this.isInFavorite = !this.isInFavorite;
+  }
+
+  modifyStateWatchlist() {
+    if (this.isInWatchlist == false) {
+      this.addToList("watchlist");
+    } else {
+      this.removeFromList("watchlist");
+    }
+    this.isInWatchlist = !this.isInWatchlist;
+  }
+
+  modifyStateSeelist() {
+    if (this.isInSeenlist == false) {
+      this.addToList("seenlist");
+    } else {
+      this.removeFromList("seenlist");
+    }
+    this.isInSeenlist = !this.isInSeenlist;
+  }
+
+  addToList(list) {
+    this.api.addMovieToMoviesList(list, this.movie.id)
+    .subscribe(
+      data => {console.log(data);},
+      err => console.error(err),
+    );
+  }
+
+  removeFromList(list) {
+    this.api.deleteMovieFromMoviesList(list, this.movie.id)
+    .subscribe(
+      data => {console.log(data);},
+      err => console.error(err),
+    );
   }
 }

@@ -9,19 +9,33 @@
     <p class="title-no-backdrop"><span>{{movie.original_title}}</span></p>
   </div>
   <!-- detail content -->
-  <div class="content-container">
-    <div *ngIf="movie.poster_path != null" class="one">
+  <div class="grid-content-container">
+    <!-- poster -->
+    <div class="one" *ngIf="movie.poster_path != null">
       <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="poster" class="poster">
     </div>
+    <!-- movie details -->
     <div class="two">
       <div class="section">
-      <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
+        <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
       </div>
       <div class="section">
         <span class="release-date">{{movie.release_date}}</span>
-        <i *ngFor="let star of fullStars" class="fas fa-star"></i>
-        <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
-        <i *ngFor="let star of emptyStars" class="far fa-star"></i>
+        <span class="stars">
+          <i *ngFor="let star of fullStars" class="fas fa-star"></i>
+          <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
+          <i *ngFor="let star of emptyStars" class="far fa-star"></i>
+        </span>
+        <span (click)="modifyStateFavorite()" class="likes">
+          <a><i *ngIf="isInFavorite == false" class="far fa-heart"></i></a>
+          <a><i *ngIf="isInFavorite == true" class="fas fa-heart"></i></a>
+        </span>
+        <div class="add-buttons">
+          <button *ngIf="isInWatchlist == false" (click)="modifyStateWatchlist()">Add to Watchlist</button>
+          <button *ngIf="isInWatchlist == true" (click)="modifyStateWatchlist()">Remove from Watchlist</button>
+          <button *ngIf="isInSeenlist == false" (click)="modifyStateSeelist()">Add to Seenlist</button>
+          <button *ngIf="isInSeenlist == true" (click)="modifyStateSeelist()">Remove from Seenlist</button>
+        </div>
       </div>
       <div class="section">
         <h2>Synopsis :</h2>
@@ -45,4 +59,80 @@
       </div>
     </div>
   </div>
+  <!--
+
+  <div class="wrapper">
+    <div class="one">
+      <div *ngIf="movie.poster_path != null">
+        <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="poster" class="poster">
+      </div>
+    </div>
+    <div class="two">
+      <div>
+        <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
+      </div>
+      <div>
+        <span class="release-date">{{movie.release_date}}</span>
+      </div>
+      <div>
+        <span class="stars">
+          <i *ngFor="let star of fullStars" class="fas fa-star"></i>
+          <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
+          <i *ngFor="let star of emptyStars" class="far fa-star"></i>
+        </span>
+      </div>
+
+      <div class="wrapper">
+        <div class="g2-one">
+          <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
+        </div>
+        <div class="g2-two">
+          <span class="release-date">{{movie.release_date}}</span>
+        </div>
+        <div class="g2-three">
+          <span class="stars">
+            <i *ngFor="let star of fullStars" class="fas fa-star"></i>
+            <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
+            <i *ngFor="let star of emptyStars" class="far fa-star"></i>
+          </span>
+        </div>
+      </div>
+      -->
+
+      <!--
+    </div>
+    <div class="three">
+      <h2>Synopsis :</h2>
+      {{movie.overview}}
+    </div>
+    <div class="four">Quatre</div>
+    <div class="cinq">Cinq</div>
+    <div class="six heart">
+      <span (click)="onLike()" class="likes heart">
+        <a><i *ngIf="liked == false" class="far fa-heart"></i></a>
+        <a><i *ngIf="liked == true" class="fas fa-heart"></i></a>
+      </span>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="videos.length != 0" class="videos-container">
+    <h2>Trailers :</h2>
+    <a *ngFor="let video of videos" href="https://www.youtube.com/watch?v={{video.key}}"><img src="https://img.youtube.com/vi/{{video.key}}/0.jpg" class="trailer-thumbnail"></a>
+  </div>
+  <div *ngIf="reviews.length != 0" class="reviews">
+    <h2>Reviews :</h2>
+    <div *ngFor="let review of reviews" class="review">
+      <div class="title-review">
+        {{review.author}}
+      </div>
+      <br>
+      <div class="content-review">
+        {{review.content}}
+      </div>
+    </div>
+  </div>
+
+  -->
 </div>
