@@ -4,6 +4,8 @@ const MOVIES_BASE_URL = "https://api.themoviedb.org/3";
 
 const SEARCH = "/search";
 const MOVIES = "/movie";
+const VIDEOS = "/videos";
+const REVIEWS = "/reviews";
 
 const POPULAR_SORT = "/popular";
 const TOP_RATED_SORT = "/top_rated";
@@ -66,6 +68,24 @@ module.exports.getSearchedMovies = function (req, res) {
 module.exports.getMovieDetails = function (req, res) {
   request({
     uri: MOVIES_BASE_URL + MOVIES + "/" + req.params.movie_id,
+    qs: {
+      api_key: API_KEY
+    }
+  }).pipe(res);
+};
+
+module.exports.getMovieVideos = function (req, res) {
+  request({
+    uri: MOVIES_BASE_URL + MOVIES + "/" + req.params.movie_id + VIDEOS,
+    qs: {
+      api_key: API_KEY
+    }
+  }).pipe(res);
+};
+
+module.exports.getMovieReviews = function (req, res) {
+  request({
+    uri: MOVIES_BASE_URL + MOVIES + "/" + req.params.movie_id + REVIEWS,
     qs: {
       api_key: API_KEY
     }

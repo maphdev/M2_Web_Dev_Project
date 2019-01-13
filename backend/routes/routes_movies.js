@@ -26,4 +26,10 @@ router.get('/movies/search/:search/:page_id', ctrlMovies.getSearchedMovies);
 // (GET) /api/movies/:movie_id
 router.get('/movies/:movie_id', ctrlMovies.getMovieDetails);
 
+// (GET) /api/movies/:movie_id/videos
+router.get('/movies/:movie_id/videos', ctrlMovies.getMovieVideos);
+
+// (GET) /api/movies/:movie_id/reviews
+router.get('/movies/:movie_id/reviews', ctrlMovies.getMovieReviews);
+
 module.exports = router;
