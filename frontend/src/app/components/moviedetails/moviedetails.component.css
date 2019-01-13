@@ -1,0 +1,111 @@
+/* Backdrop title */
+
+.title-container {
+   position: relative;
+   width: 100%;
+   margin-bottom: 2vw;
+}
+
+.backdrop {
+  width: 100%;
+}
+
+.title-backdrop {
+   position: absolute;
+   top: 40%;
+   left: 0;
+   width: 100%;
+}
+
+.title-backdrop span {
+   color: white;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0);
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   font-size: 3vw;
+}
+
+.title-no-backdrop {
+}
+
+.poster {
+  width: 20vw;
+}
+
+/* Details content */
+
+.content-container {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-gap: 2vw;
+}
+
+.section {
+  margin: 25px;
+}
+
+.one {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.two {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}
+
+.genre {
+  background: #e50914;
+  border-radius: 10px;
+  padding: 3px 5px 3px 5px;
+  margin: 10px 3px 10px 0px;
+}
+
+.release-date {
+  margin-right: 60px;
+}
+
+.reviews {
+}
+
+.review {
+  margin: 2vw 0vw 2vw 0vw;
+  background: #323232;
+  border-radius: 5px;
+  padding: 1vw;
+}
+
+.title-review {
+font-weight: bold;
+}
+
+.content-review {
+  font-style: italic;
+}
+
+.videos-container {
+  margin: 2vw 0vw 2vw 0vw;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.trailer-thumbnail {
+  width: 20vw;
+  margin-right: 2vw;
+}
+
+/*
+@media (max-width: 768px) {
+  .one {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  .two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+    font-size: 2vw;
+  }
+}
+*/

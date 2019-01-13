@@ -1,3 +1,48 @@
 <div *ngIf="movie != null">
-  {{movie.original_title}}
+  <!-- Title with backdrop -->
+  <div *ngIf="movie.backdrop_path != null" class="title-container">
+    <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" alt="poster" class="backdrop">
+    <p class="title-backdrop"><span>{{movie.original_title}}</span></p>
+  </div>
+  <!-- Title without backdrop -->
+  <div *ngIf="movie.backdrop_path == null" class="title-container">
+    <p class="title-no-backdrop"><span>{{movie.original_title}}</span></p>
+  </div>
+  <!-- detail content -->
+  <div class="content-container">
+    <div *ngIf="movie.poster_path != null" class="one">
+      <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="poster" class="poster">
+    </div>
+    <div class="two">
+      <div class="section">
+      <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
+      </div>
+      <div class="section">
+        <span class="release-date">{{movie.release_date}}</span>
+        <i *ngFor="let star of fullStars" class="fas fa-star"></i>
+        <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
+        <i *ngFor="let star of emptyStars" class="far fa-star"></i>
+      </div>
+      <div class="section">
+        <h2>Synopsis :</h2>
+        {{movie.overview}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="videos.length != 0" class="videos-container">
+    <h2>Trailers :</h2>
+    <a *ngFor="let video of videos" href="https://www.youtube.com/watch?v={{video.key}}"><img src="https://img.youtube.com/vi/{{video.key}}/0.jpg" class="trailer-thumbnail"></a>
+  </div>
+  <div *ngIf="reviews.length != 0" class="reviews">
+    <h2>Reviews :</h2>
+    <div *ngFor="let review of reviews" class="review">
+      <div class="title-review">
+        {{review.author}}
+      </div>
+      <br>
+      <div class="content-review">
+        {{review.content}}
+      </div>
+    </div>
+  </div>
 </div>

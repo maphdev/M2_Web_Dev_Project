@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../../types/movie';
-import { map } from 'rxjs/operators/map';
+import { Review } from '../../types/review';
+import { Video } from '../../types/video';
 import { AuthenticationService } from '../authentication/authentication.service';
 
 
@@ -26,13 +27,21 @@ export class MoviesApiService {
   }
 
   fetchPersonalMoviesList(list = "watchlist") {
-    return this.http.get(`${this.baseUrl}/movielist/${list}/`, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
+    return this.http.get(`${this.baseUrl}/movielist/${list}`, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
   }
 
   fetchMovieById(id = 0) {
-    return this.http.get<Movie>(`${this.baseUrl}/movies/${id}/`);
+    return this.http.get<Movie>(`${this.baseUrl}/movies/${id}`);
   }
-  // (PUT) /api/movielist/watchlist/
+
+  fetchReviewById(id = 0) {
+    return this.http.get<Review[]>(`${this.baseUrl}/movies/${id}/reviews`);
+  }
+
+  fetchVideosById(id = 0) {
+    return this.http.get<Video[]>(`${this.baseUrl}/movies/${id}/videos`);
+  }
+
   addMovieToMoviesList(list = "watchlist", id = 0) {
     return this.http.put(`${this.baseUrl}/movielist/${list}`, {id: id}, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
   }
