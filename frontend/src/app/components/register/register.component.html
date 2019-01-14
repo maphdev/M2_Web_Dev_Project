@@ -2,40 +2,52 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Watchlist - Sign Up</title>
+    <title>Watchlist - Sign In</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
   </head>
-
   <body>
     <nav>
-      <a href="" class="logo">
-        <img src="../../../assets/watchlist_logo.png" class="logo">
-      </a>
+      <div class="logo">
+        <a href="">
+          <img src="../../../assets/watchlist_logo.png" class="logo">
+        </a>
+      </div>
     </nav>
-
-    <section>
-      <div class="container form Absolute-Center">
-        <h1>Sign Up</h1>
-        <form (submit)="register()">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input class="form-control" type="text" name="username" placeholder="Enter username" [(ngModel)]="creds.username" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input class="form-control" type="email" name="email" placeholder="Enter email" [(ngModel)]="creds.email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]="creds.password">
-          </div>
-
-          <button type="submit" class="btn submit">Submit</button>
-        </form>
-        <div class="login">
-          <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+    <div class="grandParentContainer">
+      <div class="parentContainer">
+        <div id="registerForm">
+          <h1>Sign Up</h1>
+          <form [formGroup]="registerForm" (submit)="register()">
+            <br><br>
+            <mat-form-field class="full-width">
+              <input matInput type="text" placeholder="Username" formControlName="username" [(ngModel)]="creds.username" required>
+              <mat-error *ngFor="let validation of validation_messages.username">
+                <mat-error class="error-message" *ngIf="registerForm.get('username').hasError(validation.type) && (registerForm.get('username').dirty || registerForm.get('username').touched)">{{validation.message}}</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="full-width">
+              <input matInput type="email" placeholder="Email" formControlName="email" [(ngModel)]="creds.email" required>
+              <mat-error *ngFor="let validation of validation_messages.email">
+                <mat-error class="error-message" *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">{{validation.message}}</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="full-width">
+              <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="creds.password" required>
+              <mat-error *ngFor="let validation of validation_messages.password">
+                <mat-error class="error-message" *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">{{validation.message}}</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <br><br>
+            <button class="btn submit" mat-raised-button type="submit" [disabled]="!registerForm.valid">Submit</button>
+            <br><br>
+            <div class="login">
+              <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>

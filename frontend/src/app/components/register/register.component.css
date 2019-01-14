@@ -1,23 +1,18 @@
-html, body {
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+html, body{
+	height:100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.05)), url('../../../assets/back-future.jpg');
   color: white;
-  font-size: 16px;
-  margin: 0;
-  background: black;
-  height: 100vh;
 }
 
 nav {
   height: 90px;
+	position: absolute;
+	margin-left: 3%;
 }
 
 nav a {
   display: inline-block;
   line-height: 90px;
-}
-
-nav .logo {
-  margin-left: 3%;
 }
 
 nav img {
@@ -26,15 +21,26 @@ nav img {
   vertical-align: middle;
 }
 
-.form {
+.logo {
+	position: absolute;
+	margin-left: 3%;
+}
+
+.grandParentContainer {
+	display:table; height:100%; margin: 0 auto;
+}
+
+.parentContainer {
+	display:table-cell; vertical-align:middle;
+}
+
+#registerForm {
+  width: 400px;
+  text-align: center;
+  background-color: white;
   border-radius: 5px;
   color: black;
-  background-color: white;
   padding: 30px;
-  max-width: 400px;
-  max-height: 500px;
-  min-height: 500px;
-  margin: 0 auto;
 }
 
 .submit {
@@ -50,22 +56,7 @@ nav img {
 }
 
 .login {
-  margin-top: 5%;
-  padding-top: 2%;
+  margin: 30px;
+  padding-top: 10px;
   border-top: #ccc solid 1px;
-}
-
-.Absolute-Center {
-  margin: auto;
-  position: absolute;
-  top: 160px; left: 0; bottom: 100px; right: 0;
-  width: 50%;
-  height: 50%;
-  min-width: 200px;
-  max-width: 400px;
-}
-
-.submit:hover {
-  background: #f40612;
-  color:white;
 }

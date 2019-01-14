@@ -4,7 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 
 // Components
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -45,7 +47,10 @@ import { MoviedetailsComponent } from './components/moviedetails/moviedetails.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AuthenticationService, AuthGuardNotIdentifiedService, AuthGuardIdentifiedService, MoviesApiService],
   bootstrap: [AppComponent]

@@ -16,14 +16,18 @@ nav a {
   line-height: 90px;
 }
 
-nav .logo {
-  margin-left: 3%;
-}
-
 nav img {
   width: 167px;
   height: 45px;
   vertical-align: middle;
+}
+
+.logo {
+	position: absolute;
+  margin-top: 7px;
+	margin-left: 3%;
+  vertical-align: middle;
+
 }
 
 nav .signin {
