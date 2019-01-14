@@ -1,24 +1,38 @@
-
-<div *ngIf="hasFavorite == true && favoriteMovie != null">
+<div class="content">
   <div class="welcome">
     <a href="">
       <img src="../../../assets/welcome.png">
     </a>
   </div>
 
-  <div class="text-container elevated">
-    <div class="text-recommendations truc">
-      <span>Based on your favorite "{{favoriteMovie.original_title}}", we thought you might like...</span>
+  <!-- When the user doesn't have a favorite -->
+  <div *ngIf="hasFavorite == false">
+    <div>
+      <div class="text-container elevated">
+        <div class="text-recommendations truc">
+          <span>Add a movie to your list of favorite movies in order to see some recommendations here.</span>
+        </div>
+      </div>
     </div>
+    <img class="elevated image-no-favorites" src="../../../assets/deadpool.jpg">
   </div>
 
-  <div class="grid">
-    <app-moviecard
-      *ngFor="let movie of recommendations"
-      [id]="movie.id"
-      [posterPath]="movie.poster_path"
-      [name]="movie.original_title"
-      (cardClicked)="onCardClicked($event)">
-    </app-moviecard>
+  <!-- When the user have at least one favorite -->
+  <div *ngIf="hasFavorite == true && favoriteMovie != null">
+    <div class="text-container elevated">
+      <div class="text-recommendations truc">
+        <span>Based on your favorite "{{favoriteMovie.original_title}}", we thought you might like...</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <app-moviecard
+        *ngFor="let movie of recommendations"
+        [id]="movie.id"
+        [posterPath]="movie.poster_path"
+        [name]="movie.original_title"
+        (cardClicked)="onCardClicked($event)">
+      </app-moviecard>
+    </div>
   </div>
 <div>

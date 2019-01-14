@@ -9,20 +9,32 @@
   </head>
   <body class="container">
    <header class="elevated">
-     <a routerLink="/" class="logo">
-       <img src="../../../assets/watchlist_logo.png" class="logo">
-     </a>
-      <a (click)="auth.logout()" class="btn-red btn-header">Sign out</a>
-      <a routerLink="/profile" class="btn-red btn-header">Profile</a>
-      <a routerLink="/discover/popular/1" class="btn-red btn-header">
-        Discover by category
-      </a>
-      <a routerLink="/search" class="btn-red btn-header">
-        Search
-      </a>
-      <a routerLink="/lists/watchlist" class="btn-red btn-header">
-        My lists
-      </a>
+     <div class="topnav" id="myTopnav">
+       <a routerLink="/" class="logo">
+         <img src="../../../assets/watchlist_logo.png" class="logo">
+       </a>
+       <div class="dropdown">
+         <button class="dropbtn">
+           <i class="fas fa-user"></i>
+           &nbsp;User&nbsp;
+           <i class="fa fa-caret-down"></i>
+         </button>
+         <div class="dropdown-content">
+           <a routerLink="/profile">Profile</a>
+           <a (click)="auth.logout()">Sign out&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+         </div>
+       </div>
+       <a class="right" routerLink="/search">
+         Search
+       </a>
+       <a class="right" routerLink="/discover/popular/1">
+         Discover by category
+       </a>
+       <a class="right" routerLink="/lists/watchlist">
+         My lists
+       </a>
+       <a href="javascript:void(0);" class="icon" (click)="toggle()">&#9776;</a>
+      </div>
    </header>
    <nav></nav>
    <main>

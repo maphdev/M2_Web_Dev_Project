@@ -9,6 +9,7 @@ import { AuthenticationService, UserDetails } from '../../services/authenticatio
 export class TemplateComponent implements OnInit {
 
   userDetails: UserDetails;
+  toggled: boolean = false;
 
   constructor(private auth: AuthenticationService) { }
 
@@ -18,6 +19,10 @@ export class TemplateComponent implements OnInit {
     }, (err) => {
       console.error(err);
     });
+  }
+
+  toggle() {
+    this.toggled = !this.toggled;
   }
 
 }

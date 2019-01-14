@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   hasFavorite: boolean;
   favoriteMovie: Movie = null;
-  recommendations: Movie = [];
+  recommendations: Movie[] = [];
 
   basePosterPath = "http://image.tmdb.org/t/p/w342";
 

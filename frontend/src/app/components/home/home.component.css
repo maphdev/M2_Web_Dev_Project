@@ -17,6 +17,7 @@
     height: 60px;
     display: table;
     margin: 40px 0px 60px 0px;
+    padding: 0px 20px 0px 20px;
     background: rgba(0, 0, 0, 0.7);
 }
 
@@ -31,4 +32,15 @@
   display:block;
   margin:auto;
   width: 50%;
+}
+
+.grandParentContainer {
+	display:table; height:100%; margin: 0 auto;
+}
+.parentContainer {
+	display:table-cell; vertical-align:middle;
+}
+
+.image-no-favorites {
+  width: 100%;
 }
