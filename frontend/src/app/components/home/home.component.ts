@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesApiService } from '../../services/movies-api/movies-api.service';
 import { Movie } from '../../types/movie';
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   basePosterPath = "http://image.tmdb.org/t/p/w342";
 
-  constructor(private api: MoviesApiService) { }
+  constructor(private api: MoviesApiService, private router: Router) { }
 
   ngOnInit() {
     this.getRandomFavorite();
@@ -48,8 +49,12 @@ export class HomeComponent implements OnInit {
   getRecommendation(id) {
     this.api.fetchMovieRecommendationsById(id)
     .subscribe(
-      data => {this.recommendations = data['results']; console.log(this.recommendations);},
+      data => this.recommendations = data['results'],
       err => console.error(err),
     );
+  }
+
+  onCardClicked(movieClickedId:number):void {
+    this.router.navigate(['/movie', movieClickedId]);
   }
 }
