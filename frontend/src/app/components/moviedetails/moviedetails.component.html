@@ -41,7 +41,7 @@
   </div>
   <div *ngIf="videos.length != 0" class="videos-container">
     <h2>Trailers :</h2>
-    <a *ngFor="let video of videos" href="https://www.youtube.com/watch?v={{video.key}}"><img src="https://img.youtube.com/vi/{{video.key}}/0.jpg" class="trailer-thumbnail elevation"></a>
+    <a *ngFor="let video of videos" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}"><img src="https://img.youtube.com/vi/{{video.key}}/0.jpg" class="trailer-thumbnail elevation"></a>
   </div>
   <div *ngIf="reviews.length != 0" class="reviews">
     <h2>Reviews :</h2>
