@@ -24,15 +24,32 @@
            <a (click)="auth.logout()">Sign out&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
          </div>
        </div>
-       <a class="right" routerLink="/search">
+       <a class="right search" routerLink="/search">
          Search
        </a>
-       <a class="right" routerLink="/discover/popular/1">
-         Discover by category
-       </a>
-       <a class="right" routerLink="/lists/watchlist">
-         My lists
-       </a>
+       <div class="dropdown">
+         <button class="dropbtn">
+           &nbsp;Discovery&nbsp;
+           <i class="fa fa-caret-down"></i>
+         </button>
+         <div class="dropdown-content">
+           <a class="right" routerLink="/discover/popular/1">Popular</a>
+           <a class="right" routerLink="/discover/top_rated/1">Top Rated</a>
+           <a class="right" routerLink="/discover/now_playing/1">Now Playing</a>
+           <a class="right" routerLink="/discover/upcoming/1">Upcoming</a>
+         </div>
+       </div>
+       <div class="dropdown">
+         <button class="dropbtn">
+           &nbsp;My lists&nbsp;
+           <i class="fa fa-caret-down"></i>
+         </button>
+         <div class="dropdown-content">
+           <a class="right" routerLink="/lists/watchlist">Watchlist</a>
+           <a class="right" routerLink="/lists/seenlist">Seen</a>
+           <a class="right" routerLink="/lists/favoritelist">Favorites</a>
+         </div>
+       </div>
        <a href="javascript:void(0);" class="icon" (click)="toggle()">&#9776;</a>
       </div>
    </header>

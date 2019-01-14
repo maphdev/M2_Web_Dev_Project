@@ -83,6 +83,10 @@ h1 {
   float: right;
 }
 
+.search {
+  width: 100px;
+}
+
 .logo {
   float:
 }
@@ -136,6 +140,7 @@ h1 {
  text-decoration: none;
  display: block;
  text-align: left;
+ cursor: pointer;
 }
 
 /* Add a dark background on topnav links and the dropdown button on hover */
