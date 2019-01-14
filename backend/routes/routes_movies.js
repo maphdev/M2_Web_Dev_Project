@@ -32,4 +32,8 @@ router.get('/movies/:movie_id/videos', ctrlMovies.getMovieVideos);
 // (GET) /api/movies/:movie_id/reviews
 router.get('/movies/:movie_id/reviews', ctrlMovies.getMovieReviews);
 
+// (GET) /api/movies/:movie_id/recommendations
+router.get('/movies/:movie_id/recommendations', ctrlMovies.getRecommendationMovies);
+
+
 module.exports = router;

@@ -25,7 +25,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ListsmoviesComponent
+        component: HomeComponent
       },
       {
         path: 'discover/:category/:page',

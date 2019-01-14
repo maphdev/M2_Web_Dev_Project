@@ -6,6 +6,7 @@ const SEARCH = "/search";
 const MOVIES = "/movie";
 const VIDEOS = "/videos";
 const REVIEWS = "/reviews";
+const RECOMMENDATIONS = "/recommendations";
 
 const POPULAR_SORT = "/popular";
 const TOP_RATED_SORT = "/top_rated";
@@ -86,6 +87,15 @@ module.exports.getMovieVideos = function (req, res) {
 module.exports.getMovieReviews = function (req, res) {
   request({
     uri: MOVIES_BASE_URL + MOVIES + "/" + req.params.movie_id + REVIEWS,
+    qs: {
+      api_key: API_KEY
+    }
+  }).pipe(res);
+};
+
+module.exports.getRecommendationMovies = function (req, res) {
+  request({
+    uri: MOVIES_BASE_URL + MOVIES + "/" + req.params.movie_id + RECOMMENDATIONS,
     qs: {
       api_key: API_KEY
     }

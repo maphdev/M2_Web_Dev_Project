@@ -43,13 +43,16 @@ export class MoviesApiService {
     return this.http.get<Video[]>(`${this.baseUrl}/movies/${id}/videos`);
   }
 
+  fetchMovieRecommendationsById(id = 0) {
+    return this.http.get<Movie[]>(`${this.baseUrl}/movies/${id}/recommendations`);
+  }
+
   // add
   addMovieToMoviesList(list = "watchlist", id = 0) {
     return this.http.put(`${this.baseUrl}/movielist/${list}`, {id: id}, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
   }
 
   // delete
-  //router.delete('/movielist/favoritelist/:movie_id', auth, ctrl_watchlist.deleteMovieToFavoritelist);
   deleteMovieFromMoviesList(list = "watchlist", id = 0) {
     return this.http.delete(`${this.baseUrl}/movielist/${list}/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('user-token')}` }});
   }
