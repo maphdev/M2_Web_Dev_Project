@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const ctrl_watchlist = require('../controllers/ctrl_watchlist');
 const auth = require('../controllers/ctrl_authentication').auth;
-const handler = require('../config/handler.js');
 
 // (GET) /api/movielist/watchlist - to return the user's watchlist
 router.get('/movielist/watchlist', auth, ctrl_watchlist.getWatchlist);
@@ -29,16 +28,13 @@ router.delete('/movielist/seenlist/:movie_id', auth, ctrl_watchlist.deleteMovieT
 // Handle 405 error : method not allowed
 const handler = require('../config/handler.js');
 
-router.all('/movielist/watchlist', handler(['GET']));
-router.all('/movielist/watchlist/', handler(['PUT']));
+router.all('/movielist/watchlist', handler(['GET', 'PUT']));
 router.all('/movielist/watchlist/:movie_id', handler(['DELETE']));
 
-router.all('/movielist/favoritelist', handler(['GET']));
-router.all('/movielist/favoritelist/', handler(['PUT']));
+router.all('/movielist/favoritelist', handler(['GET', 'PUT']));
 router.all('/movielist/favoritelist/:movie_id', handler(['DELETE']));
 
-router.all('/movielist/seenlist', handler(['GET']));
-router.all('/movielist/seenlist/', handler(['PUT']));
+router.all('/movielist/seenlist', handler(['GET', 'PUT']));
 router.all('/movielist/seenlist/:movie_id', handler(['DELETE']));
 
 
