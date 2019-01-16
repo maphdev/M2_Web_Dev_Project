@@ -1,8 +1,17 @@
-<div>
-  <label>Full name:</label>
-  <p>{{ userDetails?.username }}</p>
+<div class="container-outside elevated">
+  <div class="container-inside">
+     <h1>Profile</h1>
+  </div>
 </div>
-<div>
-  <label>Email:</label>
-  <p>{{ userDetails?.email }}</p>
+<div class="container-user-infos">
+  <div class="user-infos">
+    <div>
+      <label><h3>Username:</h3></label>
+      <p>{{ userDetails?.username }}</p>
+    </div>
+    <div>
+      <label><h3>Email:</h3></label>
+      <p>{{ userDetails?.email }}</p>
+    </div>
+  </div>
 </div>

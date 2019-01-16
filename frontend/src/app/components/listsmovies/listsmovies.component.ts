@@ -11,10 +11,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 export class ListsmoviesComponent implements OnInit {
   // Categories
-  categoryLabels = ["Watchlist", "Seen", "Favorite"];
+  categoryLabels = ["Watchlist", "Seen", "Favorites"];
   categoryRoutes = ["watchlist", "seenlist", "favoritelist"];
-  currentCategory = this.categoryRoutes[0];
-  defaultLabel: string;
+  currentLabel: string;
+  currentRoute: string;
 
   // Movie list
   movies: Movie[] = [];
@@ -25,14 +25,14 @@ export class ListsmoviesComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       this.movies = [];
-      this.currentCategory = params.category;
-      this.defaultLabel = this.categoryLabels[this.categoryRoutes.indexOf(this.currentCategory)];
+      this.currentRoute = params.category;
+      this.currentLabel = this.categoryLabels[this.categoryRoutes.indexOf(this.currentRoute)];
       this.getMovies();
     });
   }
 
   getMovies() {
-    this.api.fetchPersonalMoviesList(this.currentCategory)
+    this.api.fetchPersonalMoviesList(this.currentRoute)
     .subscribe(
       data => {
         data['movieslist'].forEach(element => {
@@ -46,24 +46,6 @@ export class ListsmoviesComponent implements OnInit {
       err => console.error(err)
     );
 
-  }
-
-  onCategoryChange(category: any){
-    switch(category) {
-       case this.categoryLabels[0]: {
-          this.currentCategory = this.categoryRoutes[0];
-          break;
-       }
-       case this.categoryLabels[1]: {
-          this.currentCategory = this.categoryRoutes[1];
-          break;
-       }
-       case this.categoryLabels[2]: {
-          this.currentCategory = this.categoryRoutes[2];
-          break;
-       }
-    }
-    this.router.navigate(['/lists', this.currentCategory]);
   }
 
   onCardClicked(movieClickedId:number):void {

@@ -13,8 +13,8 @@ export class DiscovermoviesComponent implements OnInit {
   // Categories
   categoryLabels = ["Popular", "Top Rated", "Now Playing", "Upcoming"];
   categoryRoutes = ["popular", "top_rated", "now_playing", "upcoming"];
-  currentCategory: string;
-  defaultLabel: string;
+  currentLabel: string;
+  currentRoute: string;
 
   // Movie list
   movies: Movie[] = [];
@@ -29,15 +29,15 @@ export class DiscovermoviesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( params => {
-      this.currentCategory = params.category;
+      this.currentRoute = params.category;
       this.currentPage = params.page;
-      this.defaultLabel = this.categoryLabels[this.categoryRoutes.indexOf(this.currentCategory)];
+      this.currentLabel = this.categoryLabels[this.categoryRoutes.indexOf(this.currentRoute)];
       this.getMovies();
     });
   }
 
   getMovies() {
-    this.api.fetchMoviesByCategory(this.currentPage, this.currentCategory)
+    this.api.fetchMoviesByCategory(this.currentPage, this.currentRoute)
     .subscribe(
       data => {this.movies = data['results'];},
       err => console.error(err),
@@ -45,35 +45,11 @@ export class DiscovermoviesComponent implements OnInit {
   }
 
   precedentPage() {
-    this.router.navigate(['/discover', this.currentCategory, --this.currentPage]);
+    this.router.navigate(['/discover', this.currentRoute, --this.currentPage]);
   }
 
   nextPage() {
-    this.router.navigate(['/discover', this.currentCategory, ++this.currentPage]);
-  }
-
-  onCategoryChange(category: any){
-    this.currentPage = 1;
-
-    switch(category) {
-       case this.categoryLabels[0]: {
-          this.currentCategory = this.categoryRoutes[0];
-          break;
-       }
-       case this.categoryLabels[1]: {
-          this.currentCategory = this.categoryRoutes[1];
-          break;
-       }
-       case this.categoryLabels[2]: {
-          this.currentCategory = this.categoryRoutes[2];
-          break;
-       }
-       case this.categoryLabels[3]: {
-          this.currentCategory = this.categoryRoutes[3];
-          break;
-       }
-    }
-    this.router.navigate(['/discover', this.currentCategory, this.currentPage]);
+    this.router.navigate(['/discover', this.currentRoute, ++this.currentPage]);
   }
 
   onCardClicked(movieClickedId:number):void {
