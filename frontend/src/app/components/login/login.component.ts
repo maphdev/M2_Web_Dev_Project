@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   };
 
   loginForm: FormGroup;
+  isNotFoundError: boolean = false;
 
   validation_messages = {
     'email': [
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
       { type: 'required', message: 'Password is required' },
       { type: 'minlength', message: 'Password must be at least 5 characters long' },
       { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
-    ]
+    ],
+    'login': 'Mail or password is incorrect. Please try again.'
   }
 
   constructor(private auth: AuthenticationService, private router: Router, private fb: FormBuilder) { }
@@ -54,7 +56,9 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.creds).subscribe(() => {
       this.router.navigateByUrl('/');
     }, (err) => {
-      console.error(err);
+      if (err.status == 401) {
+        this.isNotFoundError = true;
+      }
     });
   }
 
