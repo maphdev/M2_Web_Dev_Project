@@ -36,4 +36,20 @@ router.get('/movies/:movie_id/reviews', ctrlMovies.getMovieReviews);
 router.get('/movies/:movie_id/recommendations', ctrlMovies.getRecommendationMovies);
 
 
+// Handle 405 error : method not allowed
+const handler = require('../config/handler.js');
+
+router.all('/movies/popular/:page_id', handler(['GET']));
+router.all('/movies/top_rated/:page_id', handler(['GET']));
+router.all('/movies/now_playing/:page_id', handler(['GET']));
+router.all('/movies/upcoming/:page_id', handler(['GET']));
+
+router.all('/movies/search/:search/:page_id', handler(['GET']));
+
+router.all('/movies/:movie_id', handler(['GET']));
+router.all('/movies/:movie_id/videos', handler(['GET']));
+router.all('/movies/:movie_id/reviews', handler(['GET']));
+router.all('/movies/:movie_id/recommendations', handler(['GET']));
+
+
 module.exports = router;
