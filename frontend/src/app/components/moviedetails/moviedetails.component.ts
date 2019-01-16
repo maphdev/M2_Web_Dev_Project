@@ -146,7 +146,7 @@ export class MoviedetailsComponent implements OnInit {
   addToList(list) {
     this.api.addMovieToMoviesList(list, this.movie.id)
     .subscribe(
-      data => {console.log(data);},
+      data => {},
       err => console.error(err),
     );
   }
@@ -154,7 +154,7 @@ export class MoviedetailsComponent implements OnInit {
   removeFromList(list) {
     this.api.deleteMovieFromMoviesList(list, this.movie.id)
     .subscribe(
-      data => {console.log(data);},
+      data => {},
       err => console.error(err),
     );
   }

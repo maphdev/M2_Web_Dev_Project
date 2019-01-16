@@ -24,34 +24,4 @@ export class MoviecardComponent implements OnInit {
   onClick() {
     this.cardClicked.emit(this.id);
   }
-
-  // essai pour tester les fonctions
-  /*
-  addToWatchList() {
-    this.api.addMovieToMoviesList("watchlist", this.id)
-    .subscribe(
-      data => {console.log(data);},
-      err => console.error(err),
-    );
-    console.log("add watchlist : ", this.id);
-  }
-
-  addToSeenList() {
-    this.api.addMovieToMoviesList("seenlist", this.id)
-    .subscribe(
-      data => {console.log(data);},
-      err => console.error(err),
-    );
-    console.log("add seenlist : ", this.id);
-  }
-
-  addToFavoriteList() {
-    this.api.addMovieToMoviesList("favoritelist", this.id)
-    .subscribe(
-      data => {console.log(data);},
-      err => console.error(err),
-    );
-    console.log("add favoritelist : ", this.id);
-  }
-  */
 }

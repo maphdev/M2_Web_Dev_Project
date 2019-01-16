@@ -1,9 +1,4 @@
 <div class="card" (click)="onClick()">
-  <img src={{posterPath}} onerror="this.src='../../../assets/poster-not-available.png'" alt="poster" class="poster">
+  <img src={{posterPath}} onerror="this.src='assets/poster-not-available.png'" alt="poster" class="poster">
   <p class="title">{{name}}</p>
-  <!-- Temporary, just for testing
-  <button (click)="addToWatchList()">Watchlist</button>
-  <button (click)="addToSeenList()">Seen</button>
-  <button (click)="addToFavoriteList()">Favorite</button>
-  -->
 </div>

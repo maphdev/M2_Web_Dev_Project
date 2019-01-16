@@ -1,14 +1,14 @@
 <div *ngIf="movie != null">
   <!-- Title with backdrop -->
   <div class="title-container">
-    <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" onerror="this.src='../../../assets/backdrop-not-available.png'" alt="poster" class="backdrop elevation">
+    <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" onerror="this.src='assets/backdrop-not-available.png'" alt="poster" class="backdrop elevation">
     <p class="title-backdrop"><span class="elevation">{{movie.title}}</span></p>
   </div>
   <!-- detail content -->
   <div class="grid-content-container">
     <!-- poster -->
     <div class="one">
-      <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" onerror="this.src='../../../assets/poster-not-available.png'" alt="poster" class="poster elevation">
+      <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" onerror="this.src='assets/poster-not-available.png'" alt="poster" class="poster elevation">
     </div>
     <!-- movie details -->
     <div class="two">
@@ -55,80 +55,4 @@
       </div>
     </div>
   </div>
-  <!--
-
-  <div class="wrapper">
-    <div class="one">
-      <div *ngIf="movie.poster_path != null">
-        <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="poster" class="poster">
-      </div>
-    </div>
-    <div class="two">
-      <div>
-        <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
-      </div>
-      <div>
-        <span class="release-date">{{movie.release_date}}</span>
-      </div>
-      <div>
-        <span class="stars">
-          <i *ngFor="let star of fullStars" class="fas fa-star"></i>
-          <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
-          <i *ngFor="let star of emptyStars" class="far fa-star"></i>
-        </span>
-      </div>
-
-      <div class="wrapper">
-        <div class="g2-one">
-          <span *ngFor="let genre of movie.genres" class="genre">{{genre.name}}</span>
-        </div>
-        <div class="g2-two">
-          <span class="release-date">{{movie.release_date}}</span>
-        </div>
-        <div class="g2-three">
-          <span class="stars">
-            <i *ngFor="let star of fullStars" class="fas fa-star"></i>
-            <i *ngFor="let star of halfStars" class="fas fa-star-half-alt"></i>
-            <i *ngFor="let star of emptyStars" class="far fa-star"></i>
-          </span>
-        </div>
-      </div>
-      -->
-
-      <!--
-    </div>
-    <div class="three">
-      <h2>Synopsis :</h2>
-      {{movie.overview}}
-    </div>
-    <div class="four">Quatre</div>
-    <div class="cinq">Cinq</div>
-    <div class="six heart">
-      <span (click)="onLike()" class="likes heart">
-        <a><i *ngIf="liked == false" class="far fa-heart"></i></a>
-        <a><i *ngIf="liked == true" class="fas fa-heart"></i></a>
-      </span>
-    </div>
-  </div>
-
-
-
-  <div *ngIf="videos.length != 0" class="videos-container">
-    <h2>Trailers :</h2>
-    <a *ngFor="let video of videos" href="https://www.youtube.com/watch?v={{video.key}}"><img src="https://img.youtube.com/vi/{{video.key}}/0.jpg" class="trailer-thumbnail"></a>
-  </div>
-  <div *ngIf="reviews.length != 0" class="reviews">
-    <h2>Reviews :</h2>
-    <div *ngFor="let review of reviews" class="review">
-      <div class="title-review">
-        {{review.author}}
-      </div>
-      <br>
-      <div class="content-review">
-        {{review.content}}
-      </div>
-    </div>
-  </div>
-
-  -->
 </div>
