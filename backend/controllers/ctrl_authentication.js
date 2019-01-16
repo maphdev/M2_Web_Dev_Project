@@ -34,7 +34,7 @@ module.exports.register = function (req, res) {
     if (err) {
       if (err.name === 'MongoError' && err.code === 11000) {
         // Duplicate username
-        return res.status(500).send({succes: false, message: 'User already exist!' });
+        return res.status(409).send({succes: false, message: 'User already exist!' });
       }
       return res.status(500).send(err);
     }

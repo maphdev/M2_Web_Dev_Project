@@ -33,7 +33,16 @@ app.use('/api/', routesWatchlist);
 app.get('*', function(req, res, next) {
   let err = new Error('Page Not Found');
   err.statusCode = 404;
-  next(err);
+  res.status(404).send({success: false, message: err});
+});
+
+// error handlers
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError')
+    res.status(401).send({success: false, message: err});
+  else
+    next(err);
 });
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
