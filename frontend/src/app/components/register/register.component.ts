@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   };
 
   registerForm: FormGroup;
+  isTakenEmail: boolean = false;
 
   validation_messages = {
     'username': [
@@ -33,7 +34,8 @@ export class RegisterComponent implements OnInit {
       { type: 'required', message: 'Password is required' },
       { type: 'minlength', message: 'Password must be at least 5 characters long' },
       { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
-    ]
+    ],
+    'register': 'Email already associated with a Watchlist account. Please try again with another email or login to your existing account.'
   }
 
   constructor(private auth: AuthenticationService, private router: Router, private fb: FormBuilder) { }
@@ -65,7 +67,9 @@ export class RegisterComponent implements OnInit {
     this.auth.register(this.creds).subscribe(() => {
       this.router.navigateByUrl('/');
     }, (err) => {
-      console.error(err);
+      if(err.status == 409){
+        this.isTakenEmail = true;
+      }
     });
-}
+  }
 }
