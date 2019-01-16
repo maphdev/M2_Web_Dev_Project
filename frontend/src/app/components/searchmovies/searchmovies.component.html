@@ -12,7 +12,7 @@
     *ngFor="let movie of movies"
     [id]="movie.id"
     [posterPath]="movie.poster_path"
-    [name]="movie.original_title"
+    [name]="movie.title"
     (cardClicked)="onCardClicked($event)">
   </app-moviecard>
 </div>
