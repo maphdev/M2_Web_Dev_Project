@@ -31,7 +31,7 @@ module.exports.addMovieToWatchlist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id, {$addToSet: {watchlist: req.body.id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id, {$addToSet: {watchlist: parseInt(req.body.id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
@@ -92,7 +92,7 @@ module.exports.addMovieToFavoritelist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id, {$addToSet: {favoritelist: req.body.id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id, {$addToSet: {favoritelist: parseInt(req.body.id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
@@ -153,7 +153,7 @@ module.exports.addMovieToSeenlist = function (req, res) {
   if (!req.payload._id) {
     res.status(401).send({success: false, message: "UnauthorizedError: private profile"});
   } else {
-    User.findByIdAndUpdate(req.payload._id, {$addToSet: {seenlist: req.body.id}}, {upsert: true})
+    User.findByIdAndUpdate(req.payload._id, {$addToSet: {seenlist: parseInt(req.body.id)}}, {upsert: true})
         .exec(function(err, user) {
           if (err) {
             return res.status(500).send({success: false, message: err});
