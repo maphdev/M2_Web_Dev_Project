@@ -41,6 +41,8 @@ app.get('*', function(req, res, next) {
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError')
     res.status(401).send({success: false, message: err});
+  else if (err.name === 'SyntaxError')
+    res.status(400).send({success: false, message: err});
   else
     next(err);
 });
