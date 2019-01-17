@@ -41,4 +41,5 @@ The deployed application is available via github pages : [watchlist](https://map
 The deployed API is available on heroku : [api-watchlist](https://api-watchlist.herokuapp.com/).
 
 ## API Documentation
-The Watchlist API documentation is available [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html).
+
+The Watchlist API documentation is available [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html) or in this directory [here](https://github.com/maphdev/M2_Web_Dev_Project/tree/master/backend/documentation).
