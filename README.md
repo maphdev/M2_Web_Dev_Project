@@ -38,8 +38,8 @@ The Watchlist API is available on http://localhost:4000/.
 
 The deployed application is available via github pages : [watchlist](https://maphdev.github.io/watchlist/).
 
-The deployed API is available on heroku : [api-watchlist](https://api-watchlist.herokuapp.com/).
+The deployed API is available on heroku : [api-watchlist](https://api-watchlist.herokuapp.com/api).
 
 ## API Documentation
 
-The Watchlist API documentation is available [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html) or in this directory [here](https://github.com/maphdev/M2_Web_Dev_Project/tree/master/backend/documentation).
+The Watchlist API documentation is available directly [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html) or in this directory [here](https://github.com/maphdev/M2_Web_Dev_Project/tree/master/backend/documentation).
