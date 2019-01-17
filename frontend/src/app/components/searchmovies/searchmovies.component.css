@@ -20,7 +20,14 @@
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
+}
+
+.pointer {
   cursor: pointer;
+}
+
+.margin-right {
+  margin-right: 15px;
 }
 
 .btn-red:hover {
@@ -37,12 +44,13 @@
 }
 
 .search-container {
-    background: url('../../../assets/landing_page_background.jpg');
-    box-shadow: 0 0 5px #ffffff !important;
-    width: 100%;
-    height: 60px;
-    display: table;
-    margin: 40px 0px 60px 0px;
+  box-shadow: 0 0 5px #ffffff !important;
+  width: 100%;
+  height: 60px;
+  display: table;
+  margin: 40px 0px 60px 0px;
+  padding: 0px 20px 0px 20px;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .search-inside {

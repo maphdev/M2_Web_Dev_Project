@@ -1,10 +1,12 @@
 <div class="search-container elevated">
   <div class="search-inside">
+    <h1>
     <form (submit)="submitSearch($event.target.search.value)">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <input class="btn-red margin-right" type="text" placeholder="Search.." name="search">
+      <button class="btn-red pointer margin-right" type="submit"><i class="fa fa-search"></i></button>
+      <button class="btn-red pointer" (click)="clearSearch()">Clear search</button>
    </form>
-   <button (click)="clearSearch()">Clear search</button>
+   </h1>
   </div>
 </div>
 <div class="grid">
