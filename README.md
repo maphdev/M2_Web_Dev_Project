@@ -32,10 +32,13 @@ npm start
 
 The application is available on http://localhost:4200/.
 
-The API is available on http://localhost:4000/.
+The Watchlist API is available on http://localhost:4000/.
 
 ### Deployed application
 
 The deployed application is available via github pages : [watchlist](https://maphdev.github.io/watchlist/).
 
 The deployed API is available on heroku : [api-watchlist](https://api-watchlist.herokuapp.com/).
+
+## API Documentation
+The Watchlist API documentation is available [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html).
