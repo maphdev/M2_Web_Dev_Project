@@ -42,4 +42,4 @@ The deployed API is available on heroku : [api-watchlist](https://api-watchlist.
 
 ## API Documentation
 
-The Watchlist API documentation is available directly [here](http://alienor.brabant.emi.u-bordeaux.fr/m2web/watchlistApi.html) or in this directory [here](https://github.com/maphdev/M2_Web_Dev_Project/tree/master/backend/documentation).
+The Watchlist API documentation is available directly [here](https://app.swaggerhub.com/apis-docs/abrabant/watchlistAPI/1.0.0) or in this directory [here](https://github.com/maphdev/M2_Web_Dev_Project/tree/master/backend/documentation).
