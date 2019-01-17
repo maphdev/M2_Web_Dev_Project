@@ -32,7 +32,7 @@ npm start
 
 The application is available on http://localhost:4200/.
 
-The backend si available on http://localhost:4000/.
+The API is available on http://localhost:4000/.
 
 ### Deployed application
 
